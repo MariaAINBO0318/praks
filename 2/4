@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    double a=3.5, x=-0.7, y, t;
+    if (a>x)
+        y=sqrt(sin(a*x));
+    else
+        y=a+log(x+a);
+    
+    if (a<y)
+        t=tan(a*x)+cos(2*a*y);
+    else if (a==y)
+        t=y/(a-x)+(a+x)/(y*y);
+    else
+        t=y/(a-x);
+    
+    if (t != t) {
+      if (y != y) { 
+          std::cout << "pri ishodnih dannyh nevozmojno poschitat i t i y, " << "a= " << a << ", x= " << x << std::endl; }
+      else { 
+          std::cout << "pri ishodnih dannyh nevozmojno poschitat t, " << "a= " << a << ", x= " << x << ", y= " << y << std::endl; }}
+    else if (y != y)  { 
+        std::cout << "pri ishodnih dannyh nevozmojno poschitat y, " << "a= " << a << ", x= " << x << ", t= " << t << std::endl; }
+    else std::cout << "a=" << a << "\nx=" << x << "\ny=" << y << "\nt=" << t << std::endl;
+
+    return 0;
+}
+
