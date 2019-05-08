@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int zadanie;
+    cout << "Vvedite nomer zadania" << endl;
+    cin >> zadanie;
+    switch (zadanie)
+    {
+        case 1:
+        {
+            ofstream f1;
+            ifstream f2;
+            f2.open("file.txt");
+            if (f2.is_open()) {
+                string s;
+                while (!f2.eof()) {
+                    f2 >> s;
+                    cout << s << endl;
+                }
+                f2.close();
+            }
+            else {
+                cout << "Faila net, no mi sozdali" << endl;
+                f1.open("file.txt");
+                f1.close();
+            }
+            break;
+        }
+        case 2:
+        {
+            ofstream f1;
+            string s;
+            f1.open("file.txt");
+            cout << "Vvedite tekst: " << endl;
+            cin.get();
+            getline(cin, s);
+            f1 << s;
+            f1.close();
+            break;
+        }
+    }
+    
+    return 0;
+}
+
+
