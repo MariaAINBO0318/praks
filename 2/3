@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    double a=4.6, b=1.5, y, t;
+    if (a>b)
+        y=a+(2*log(b));
+    else
+        y=(a*a-b*b)/(a*a*a+b*b*b);
+    
+    if (y<b)
+        t=sin(y)*sin(y)+(1/tan(a-b));
+    else if (y==b)
+        t=(2*y+sqrt(y*y-a))/(2*b-sqrt(a*a-y));
+    else
+        t=cbrt(y*sin(a))+(1/sqrt(y*cos(b)));
+    
+    if (t != t) {
+		if (y != y) { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat i t i y, " << "a= " << a << ", b= " << b << std::endl; }
+		else { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat t, " << "a= " << a << ", b= " << b << ", y= " << y << std::endl; }
+	}
+	else if (y != y) { 
+	    std::cout << "pri ishodnih dannyh nevozmojno poschitat y, " << "a= " << a << ", b= " << b << ", t= " << t << std::endl; }
+	else std::cout << "a=" << a << "\nb=" << b << "\ny=" << y << "\nt=" << t << std::endl;
+
+    return 0;
+}
