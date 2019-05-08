@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    double a=-0.6, b=5.3, z, t;
+    if (a<b)
+        z=sqrt(fabs(a*a-b*b));
+    else
+        z=1-(2*cos(a)*sin(b));
+    if (z<b)
+        t=cbrt(z+a*a*b);
+    else if (z==b)
+        t=1-log(z)+cos(a*a*b);
+    else
+        t=1/cos(z*a);
+    if (t != t) {
+		if (z != z) { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat i t i z, " << "a= " << a << ", b= " << b << std::endl; }
+		else { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat t, " << "a= " << a << ", b= " << b << ", z= " << z << std::endl; }
+	}
+	else if (z != z) { 
+	    std::cout << "pri ishodnih dannyh nevozmojno poschitat z, " << "a= " << a << ", b= " << b << ", t= " << t << std::endl; }
+	else std::cout << "a=" << a << "\nb=" << b << "\nz=" << z << "\nt=" << t << std::endl;
+
+    return 0;
+}
