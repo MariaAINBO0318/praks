@@ -1,0 +1,112 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+double *sozdanie(int size){ //выделение памяти для массива
+    double *array = new double[size];
+    return array;
+}
+
+double* zapolnenie(double* array,int size) { //заполнение яйчеек данными
+    for (int i=0;i<size;i++)
+        array[i] = i+1;
+    return array;
+}
+
+int ** zapolnenie(int** array,int stroki,int stolbtsy) { //перегруженное для матрицы заполнение
+    for (int i=0;i<stroki;i++)
+           for (int j=0;j<stolbtsy;j++)
+               array[i][j] = rand()%40+10;
+    return array;
+}
+
+void vyvod(double* array,int size) { //вывод одномерного массива
+    for (int i=0;i<size;i++)
+        cout<<array[i]<<" ";
+}
+
+void vyvod(int** array,int stroki,int stolbtsy) { //вывод матрицы
+    for (int i=0;i<stroki;i++) {
+           for (int j=0;j<stolbtsy;j++)
+               cout << array[i][j] << ' ';
+           cout << endl;
+       }
+}
+
+double* udalenie(double* array) { //освобождение памяти
+    delete[]array;
+    return array;
+}
+
+double* sortirovka(double* array) { //смена значений четных и нечетных ячеек массива
+    for (int i=1;i<12;i+=2) swap(array[i],array[i - 1]);
+    return array;
+}
+
+int main()
+{
+    int zadanie;
+    cout << "Vvedite nomer zadania" << endl;
+    cin >> zadanie;
+    switch (zadanie)
+    {
+        case 1:                                            //4.1
+        {
+            int k=1,size=0;
+            while(k==1){
+                cout<<"Vvedite razmer massiva: ";
+                cin>>size;                                 //ввод размера
+                double *array;
+                cout<<"Sozdaem massiv"<<endl;
+                array = sozdanie(size);
+                cout<<"Zapolnyaem massiv"<<endl;
+                array = zapolnenie(array, size);           //заполняем
+                cout<<"Vivodim massiv: "<<endl;
+                vyvod(array,size);                         //выводим
+                array=udalenie(array);                     //удаляем
+                cout<<endl<<"Massiv udalen"<<endl;
+                cout<<"Esli hotite vvesti noviy massiv vvedite 1,inache luboe chislo: ";
+                cin>>k;
+            }
+            break;
+        }
+        case 2:                                            //4.2
+        {
+            int size=12;
+            double *array;
+            cout<<"Sovdaem massiv"<<endl;
+            array = sozdanie(size);
+            cout<<"Zapolnyaem massiv"<<endl;
+            array = zapolnenie(array, size);          //заполняем
+            cout<<"Vivodim massiv: "<<endl;
+            vyvod(array,size);                        //выводим
+            cout<<endl<<"Massiv sortiruetsa: "<<endl;
+            array=sortirovka(array);                  //сортируем
+            cout<<"Vivodim sortirovanny massiv: "<<endl;
+            vyvod(array,size);
+            array=udalenie(array);
+            cout<<endl<<"Massiv udalen"<<endl;
+            break;
+        }
+        case 3:                                            //4.3
+        {
+            srand(time(0));
+            int stroki,stolbtsy;
+            cout << "Vvedite kol-vo strok: ";
+            cin >> stroki;
+            cout <<"Vvedite kol-vo slobtsov: ";
+            cin>> stolbtsy;
+            int **array = new int *[stroki];            //создаем 
+            for (int i=0;i<stroki;i++)                  //матрицу
+                array[i] = new int[stolbtsy];
+            array = zapolnenie(array,stroki,stolbtsy);
+            cout << "Poluchim dvumerniy massiv : " << endl;
+            vyvod(array,stroki,stolbtsy);
+            break;
+        }
+    }
+    return 0;
+}
+
+
