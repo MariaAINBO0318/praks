@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+   setlocale(LC_ALL, "Russian");
+   //int val1, val2;
+   double fval1, fval2;
+//Ввод чисел
+   cout<<"Введите первое число: ";
+   cin>>fval1;
+   cout<<"Введите второе число: ";
+   cin>>fval2;
+//Выполнение операций 
+   cout<<"Введите операцию над числами(+,-): ";
+   char oper;
+   cin >> oper;
+   switch(oper){
+       case '+': {
+                 cout<<"Сумма равна: "<<fval1+fval2<<endl;
+       break; }
+       case '-':
+                 cout<<"Разность равна: "<<fval1-fval2<<endl;
+       break; {
+       default: {
+                 cout<<"Вы ввели неверную операцию"<<endl;
+       break; }
+        }
+    }
+    return 0;
+}
