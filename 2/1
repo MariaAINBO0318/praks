@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    double a=4.8, b=-7.9, m, n;
+    if (a<b)
+        n=a*a+(a-b)/(sin(a*b));
+    else
+        n=cbrt(a-b);
+    
+    if (n<b)
+        m=(n+a)/(-b)+sqrt(pow(sin(a),2)-cos(n));
+    else if (n==b)
+        m=b*b+tan(n*a);
+    else
+        m=b*b*b+n*a*a;
+    
+    if (m != m) {
+		if (n != n) { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat i m i n , " << "a= " << a << ", b= " << b << std::endl; }
+		else { 
+		    std::cout << "pri ishodnih dannyh nevozmojno poschitat m, " << "a= " << a << ", b= " << b << ", n= " << n << std::endl; }
+	}
+	else if (n != n) { 
+	    std::cout << "pri ishodnih dannyh nevozmojno poschitat n, " << "a= " << a << ", b= " << b << ", m= " << m << std::endl; }
+	else std::cout << "a=" << a << "\nb=" << b << "\nn=" << n << "\nm=" << m << std::endl;
+
+    return 0;
+}
