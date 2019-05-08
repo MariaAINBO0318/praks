@@ -1,0 +1,132 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct book {
+	int date;
+	int pages;
+	string name;
+	string avtor;
+};
+struct student {
+	string name;
+	int date;
+	int ball;
+};
+struct group {
+    int kolvo;
+    string nazv;
+    student st[32];
+};
+struct car {
+	int date;
+	long cash;
+	string marka;
+	string model;
+};
+struct koord {
+	int x;
+	int y;
+};
+struct vector {
+	koord start;
+	koord end;
+};
+struct biblioteque {
+	int year;
+	string name;
+	int kolvo;
+	book books[100];
+};
+
+int main(){
+	int a;
+	book kniga;
+	car porshe;
+	vector vect;
+	group gr;
+	biblioteque biblio;
+	setlocale(0, "rus");
+	cout << "выберете вариант задания" << endl;
+	cin >> a;
+	switch (a)
+	{
+	case 1:
+
+		cout << "введите имя автора" << endl;
+		cin.get();
+		getline(cin, kniga.avtor);
+		cout << "введите название книги" << endl;
+		getline(cin, kniga.name);
+		cout << "год написания" << endl;
+		cin >> kniga.date;
+		cout << "кол-во страниц" << endl;
+		cin >> kniga.pages;
+		cout << kniga.name <<" "<<kniga.avtor<<" "<< kniga.date<<" " << kniga.pages;
+		break;
+	case 2:
+	    cout << "введите название группы" << endl;
+	    cin.get();
+	    getline(cin, gr.nazv);
+		cout << "сколько студентов?" << endl;
+		cin >> gr.kolvo;
+		for (int i = 0; i < gr.kolvo; i++) {
+			cout << "введите имя " << endl;
+			cin.get();
+			getline(cin, gr.st[i].name);
+			cout << "год рождения" << endl;
+			cin >> gr.st[i].date;
+			cout << "введите его средний балл после сессии" << endl;
+			cin >> gr.st[i].ball;
+			cout << gr.st[i].name << " " << gr.st[i].date << " " << gr.st[i].ball<<endl;
+		}
+			break;
+	case 3:
+
+		cout << "введите название марки автомобиля" << endl;
+		cin.get();
+		getline(cin, porshe.marka);
+		cout << "введите название модели" << endl;
+		getline(cin, porshe.model);
+		cout << "год выпуска" << endl;
+		cin >> porshe.date;
+		cout << "стоимость" << endl;
+		cin >> porshe.cash;
+		cout << porshe.marka << " " << porshe.model << " " << porshe.date << " " << porshe.cash;
+		break;
+	case 4:
+		cout << "введите координаты первой точки на плоскости" << endl;
+		cin >> vect.start.x;
+		cin >> vect.start.y;
+		cout << "а теперь координаты второй" << endl;
+		cin >> vect.end.x;
+		cin >> vect.end.y;
+		cout << "(" << vect.end.x << "-" << vect.start.x << ";" << vect.end.y << "-" << vect.start.y << ")" << endl;
+		break;
+	case 5:
+		cout << "введите название библиотеки" << endl;
+		cin.get();
+		getline(cin, biblio.name);
+		cout << "введите год основания" << endl;
+		cin >> biblio.year;
+		cout << "введите кол-во книг(не большее 100)" << endl;
+		cin >> biblio.kolvo;
+		for (int i = 0; i < biblio.kolvo; i++) {
+			cout << "введите имя автора" << endl;
+			cin.get();
+			getline(cin, biblio.books[i].avtor);
+			cout << "введите название книги" << endl;
+			getline(cin, biblio.books[i].name);
+			cout << "год написания" << endl;
+			cin >> biblio.books[i].date;
+			cout << "кол-во страниц" << endl;
+			cin >> biblio.books[i].pages;
+			cout << biblio.books[i].name << " " << biblio.books[i].avtor;
+			cout << " " << biblio.books[i].date << " " << biblio.books[i].pages << endl;
+		}
+			break;
+	}
+
+}
+
+
